@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvestBR - Login/Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">InvestBR</a>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-tabs">
+            <button class="tab-button active" onclick="showForm('login')">Entrar</button>
+            <button class="tab-button" onclick="showForm('register')">Cadastrar</button>
+            
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form">
+            <h2>Entrar na sua conta</h2>
+            <div class="form-group">
+                <label for="login-email">E-mail</label>
+                <input type="email" id="login-email" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Senha</label>
+                <input type="password" id="login-password" required>
+            </div>
+            <div class="form-options">
+                <label>
+                    <input type="checkbox"> Manter conectado
+                </label>
+                <a href="#" class="forgot-password">Esqueceu a senha?</a>
+            </div>
+            <button type="submit" class="auth-button">Entrar</button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form" class="auth-form hidden">
+            <h2>Criar uma conta</h2>
+            <div class="form-group">
+                <label for="register-name">Nome completo</label>
+                <input type="text" id="register-name" required>
+            </div>
+            <div class="form-group">
+                <label for="register-email">E-mail</label>
+                <input type="email" id="register-email" required>
+            </div>
+            <div class="form-group">
+                <label for="register-password">Senha</label>
+                <input type="password" id="register-password" required>
+            </div>
+            <div class="form-group">
+                <label for="register-confirm-password">Confirmar senha</label>
+                <input type="password" id="register-confirm-password" required>
+            </div>
+            <div class="form-options">
+                <label>
+                    <input type="checkbox" required> Aceito os termos de uso e política de privacidade
+                </label>
+            </div>
+            <button type="submit" class="auth-button">Cadastrar</button>
+        </form>
+    </div>
+
+    <script>
+        function showForm(formType) {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const tabs = document.querySelectorAll('.tab-button');
+
+            if (formType === 'login') {
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+                tabs[0].classList.add('active');
+                tabs[1].classList.remove('active');
+            } else {
+                loginForm.classList.add('hidden');
+                registerForm.classList.remove('hidden');
+                tabs[0].classList.remove('active');
+                tabs[1].classList.add('active');
+            }
+        }
+
+        // Check URL parameters when page loads
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('register') === 'true') {
+                showForm('register');
+            }
+        });
+    </script>
+</body>
+</html>
