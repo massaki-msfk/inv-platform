@@ -18,7 +18,24 @@
             background-color: #f8f9fa;
         }
 
+        header {
+            align-items: center;
+        }
+            
+        .logo {
+            font-size: 1.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
         .navbar {
+
+        }
+
+        .login-navbar {
             background-color: rgba(255, 255, 255, 0.95);
             padding: 1.2rem 3rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -29,15 +46,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
         }
 
         .nav-buttons {
@@ -126,8 +134,8 @@
 
         .cta-button {
             padding: 1.2rem 2.5rem;
-            background: white;
-            color: var(--primary-blue);
+            background: #1a73e8;
+            color: white;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
@@ -137,6 +145,7 @@
         }
 
         .cta-button:hover {
+            background-color: #124f9e;
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
